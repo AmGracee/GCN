@@ -4,7 +4,6 @@
 
 源代码主要包含四个文件：
 
-`__init__.py`\
 `layers.py`\
 `utils.py`\
 `models.py`\
