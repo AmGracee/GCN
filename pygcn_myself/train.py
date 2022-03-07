@@ -6,6 +6,8 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim # 优化器
 
+from torch.utils.tensorboard import SummaryWriter
+
 from pygcn_myself.utils import load_data, accuracy
 from pygcn_myself.models import GCN
 
@@ -95,6 +97,7 @@ optimizer = optim.Adam(model.parameters(),
 #     idx_val = idx_val.cuda()
 #     idx_test = idx_test.cuda()
 
+writer = SummaryWriter("loss_train_logs")
 
 # 定义训练函数
 def train(epoch):
@@ -128,6 +131,8 @@ def train(epoch):
               'loss_val: {:.4f}'.format(loss_val.item()),	# 验证集损失函数值
               'acc_val: {:.4f}'.format(acc_val.item()),	# 验证集准确率
               'time: {:.4f}s'.format(time.time() - t))	# 运行时间
+        writer.add_scalar("loss train",loss_train.item(),epoch)
+        # tensorboard --logdir=./pygcn_myself/loss_train_logs --port=6008 注意dir的文件夹位置
 
 # 上面的整个步骤归纳：
 # 先将model置为训练状态；梯度清零；
@@ -158,7 +163,7 @@ print("total time elapsed:{:.4f}s".format(time.time()-t_total)) # 总训练时�
 
 # 测试
 test()
-
+writer.close()
 """
 这个代码就是做半监督的节点分类。具体说就是，我知道每篇论文
 的节点特征，以及论文对应的图网络。现在，我只给部分节点的分
