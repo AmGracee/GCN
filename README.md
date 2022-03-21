@@ -7,9 +7,9 @@
 `layers.py`\
 `utils.py`\
 `models.py`\
-`train.py`
-其中GCN_cora.ipynb 可直接在jupyter book上运行
-#参考资料
+`train.py`\
+其中GCN_cora.ipynb 可直接在jupyter book上运行\
+#参考资料\
 【1】[pygcn](https://github.com/tkipf/pygcn)
 
 【2】[Kipf & Welling, Semi-Supervised Classification with Graph Convolutional Networks, 2016](https://arxiv.org/abs/1609.02907)
