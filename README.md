@@ -8,7 +8,7 @@
 `utils.py`\
 `models.py`\
 `train.py`
-
+其中GCN_cora.ipynb 可直接在jupyter book上运行
 #参考资料
 【1】[pygcn](https://github.com/tkipf/pygcn)
 
