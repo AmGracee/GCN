@@ -116,7 +116,7 @@ def sparse_mx_to_torch_sparse_tensor(sparse_mx):
 
 def accuracy(output, labels): # 准确率，此函数可参考学习
     preds = output.max(1)[1].type_as(labels)
-        # max(1)返回每一行最大值组成的一维数组和索引，output.max(1)[1]表示找出output中最大值所在的索引indice
+        # max(dim=1)返回每一行最大值组成的一维数组和索引，dim=0返回每一列最大值，output.max(1)[1]表示找出output中最大值所在的索引indice
         # type_as将张量转化成labels类型
         # 例如：output=[0.1,0.2,0.7][0.2,0.6,0.2] preds就是0.7的索引2,和0.6的索引1
         # labels=[0,0,1][0,1,0],索引为2和1  output和label的索引相等，则正确
